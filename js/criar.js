@@ -1,6 +1,6 @@
 document.querySelector("#botao-criar").addEventListener("click", () => {
 
-    const form = document.querySelector("ui form")
+    const form = document.querySelector("form")
 
     const tarefa = {
         titulo: form.titulo.value,
@@ -11,9 +11,16 @@ document.querySelector("#botao-criar").addEventListener("click", () => {
 
     validar(tarefa)
 
-    console.log(tarefa)
+    salvar(tarefa)
 
 })
+
+function salvar (tarefa) {
+    const tarefas = JSON.parse( localStorage.getItem("tarefas") ) || []
+    tarefas.push(tarefa)
+    localStorage.setItem("tarefas", JSON.stringify(tarefas))
+    window.location.href = "index.html"
+}
 
 function validar(tarefa){
     limparErros()
@@ -21,11 +28,6 @@ function validar(tarefa){
     if (tarefa.titulo.trim() == ""){
         document.querySelector("#titulo").classList.add("is-error")
         document.querySelector("#titulo-erro").innerText = "o título é obrigatório"
-    }
-
-    if (tarefa.descricao.trim() == "" || tarefa.descricao.length < 10){
-        document.querySelector("#descricao").classList.add("is-error")
-        document.querySelector("#descricao-erro").innerText = "a descrição deve ter pelo menos 10 caracteres"
     }
     
     if (tarefa.horaInicial.trim() == ""){
@@ -37,13 +39,20 @@ function validar(tarefa){
         document.querySelector("#horaFinal").classList.add("is-error")
         document.querySelector("#horaFinal-erro").innerText = "A hora final é obrigatória"
     }
+
+    if (tarefa.descricao.trim() == "" || tarefa.descricao.length < 10){
+        document.querySelector("#descricao").classList.add("is-error")
+        document.querySelector("#descricao-erro").innerText = "a descrição deve ter pelo menos 10 caracteres"
+    }
 }
 
 function limparErros(){
+    const campos = document
+                .querySelectorAll("input.is-error, input.is-error")
 
-    document
-        .querySelectorAll("input .is-error, textarea .is-error")
-        .classList
-        .remove("is-error")
-    
+    campos
+        .forEach(input => input.classList.remove("is-error") )
+
+    document.querySelectorAll(".ui positive button")
+            .forEach( span => span.innerText = "")
 }

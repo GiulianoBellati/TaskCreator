@@ -11,31 +11,38 @@
 
 <body>
 
-    <h1>TaskCreator</h1>
+    <h1>Task Creator</h1>
 
-    
     <form action="">
-        <h2 class="nes-text is-primary">Cadastrar Tarefa</h2>
-        <div class="nes-field">
-            <label for="titulo">Título</label>
-            <input type="text" id="titulo" class="nes-input">
-            <span id="titulo-erro" class="nes-text is-error"></span>
+        <h2 class="ui violet message">Crie uma nova tarefa</h2>
+        <div class="ui form">
+            <div class="three fields">
+            <div class="field">
+                <label for="titulo">Título</label>
+                <input type="text" placeholder="Título." id="titulo">
+                <span id="titulo-erro" class="text is-error"></span>
+            </div>
+            <div class="field">
+                <label for="horaInicial">Hora inicial</label>
+                <input type="text" placeholder="hh:mm" id="horaInicial">
+                <span id="horaInicial-erro" class="text is-error"></span>
+            </div>
+            <div class="field">
+                <label for="horaFinal">Hora final</label>
+                <input type="text" placeholder="hh:mm" id="horaFinal">
+                <span id="horaFinal-erro" class="text is-error"></span>
+            </div>
+            <div class="field">
+                <label for="descricao">Descrição</label>
+                <input type="text" placeholder="Descrição..." id="descricao">
+                <span id="descricao" class="text is-error"></span>
+            </div>
         </div>
-
-        <div class="nes-field">
-            <label for="descricao">Descrição</label>
-            <textarea id="descricao" class="nes-textarea"></textarea>
-            <span id="descricao-erro" class="nes-text is-error"></span>
-        </div>
-
-        <div class="nes-field">
-            <label for="pontos">Pontos</label>
-            <input type="number" id="pontos" class="nes-input">
-            <span id="pontos-erro" class="nes-text is-error"></span>
-        </div>
-
         <div class="acoes">
-            <a href="/index.html" class="nes-btn">cancelar</a>
-            <button type="button" id="botao-cadastrar" class="nes-btn is-primary">salvar</button>
+            <div class="ui buttons">
+                <a href="/index.html" class="ui button">Cancelar</a>
+                <div class="or"></div>
+                <button type="button" id="botao-criar" class="ui positive button">Salvar</button>
+            </div>
         </div>
     </form>
