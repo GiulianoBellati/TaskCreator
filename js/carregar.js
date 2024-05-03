@@ -4,7 +4,6 @@ tarefas.forEach( tarefa => card(tarefa) )
 
 function card(tarefa){
 
-    //template literais
     const content =`
     <div class="ui cards">
         <div class="card">
@@ -15,17 +14,17 @@ function card(tarefa){
             ${tarefa.descricao}
             </div>
         </div>
-        <div class="ui bottom attached button">
-            <i class="sync alternate icon"></i>
-            Alterar
-        </div>
-        </div>
+
+        <button onclick="apagar('${tarefa.id}')"  class="ui inverted red button">
+                    <i class="sync trash icon"></i>
+                    Deletar
+        </button>
     </div>`
 
 const card = document.createElement("div")
+card.id = tarefa.id
 card.innerHTML = content
 document
     .querySelector("#lista-de-tarefas")
     .appendChild(card)
-
 }

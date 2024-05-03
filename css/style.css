@@ -36,3 +36,16 @@ form {
 h2{
     text-align: center;
 }
+
+.apagando {
+    animation: fadeout 2s;
+}
+
+@keyframes fadeout{
+    from{
+        opacity: 1;
+    }
+    to{
+        opacity: 0;
+    }
+}

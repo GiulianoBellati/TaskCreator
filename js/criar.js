@@ -6,6 +6,7 @@ document
             const form = document.querySelector("form")
 
             const tarefa = {
+                id: "id" + new Date().getTime(),
                 titulo:form.titulo.value,
                 horaInicial:form.horaInicial.value,
                 descricao:form.descricao.value
